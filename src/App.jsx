@@ -343,7 +343,7 @@ function App() {
               </div>
             </Link>
             {/* Box 02 */}
-            <div className="boxservice text-white rounded-xl  relative group overflow-hidden">
+            <Link to="expenses" className="boxservice text-white rounded-xl  relative group overflow-hidden">
               <img
                 src={imgwork02}
                 className="rounded-xl hover:opacity-50 w-full h-full"
@@ -361,9 +361,9 @@ function App() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
             {/* Box 03 */}
-            <div className="boxservice text-white rounded-xl  relative group overflow-hidden">
+            <Link to="brijack" className="boxservice text-white rounded-xl  relative group overflow-hidden">
               <img
                 src={imgwork03}
                 className="rounded-xl hover:opacity-50 w-full h-full"
@@ -385,7 +385,7 @@ function App() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
             {/* Box 04 */}
             <div className="boxservice text-white rounded-xl  relative group overflow-hidden">
               <img
