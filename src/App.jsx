@@ -387,7 +387,7 @@ function App() {
               </div>
             </Link>
             {/* Box 04 */}
-            <div className="boxservice text-white rounded-xl  relative group overflow-hidden">
+            <Link to="image" className="boxservice text-white rounded-xl  relative group overflow-hidden">
               <img
                 src={imgwork04}
                 className="rounded-xl hover:opacity-50 w-full h-full"
@@ -405,7 +405,7 @@ function App() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
 
           
             
@@ -425,6 +425,7 @@ function App() {
                       <BsTelephone className="text-Secondary md:text-4xl" />
                         <span className="md:text-2xl">info@yourwebsite.com</span>
                       </div>
+                      <p>DOWLOAD CV</p>
                       <div className="sosia flex items-center gap-3 text-4xl text-Secondary">
                       <FiFacebook />
                       <FaTiktok />

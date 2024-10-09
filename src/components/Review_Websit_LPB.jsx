@@ -25,6 +25,9 @@ import img21 from "../image/21.jpg";
 import img22 from "../image/22.jpg";
 import { Link } from "react-router-dom";
 
+import { AiOutlineYoutube } from "react-icons/ai";
+
+import { FaGithub } from "react-icons/fa";
 // ImageGallery Compone
 
 export default function Review_Websit_LPB() {
@@ -54,7 +57,7 @@ export default function Review_Websit_LPB() {
   return (
     <div className="containers   text-white bg-dark h-[100%]  ">
       <article class="prose lg:prose-xl font-NotosansLao">
-        <h1 className="font-semibold text-xl">- ເວັບໄຊທ໌ແນະນໍາສະຖານທີ່ທ່ອງທ່ຽວໃນຫຼວງພະບາງ</h1>
+        <h1 className="font-semibold text-xl md:text-3xl">- ເວັບໄຊທ໌ແນະນໍາສະຖານທີ່ທ່ອງທ່ຽວໃນຫຼວງພະບາງ</h1>
         <p>
           ເວັບໄຊທ໌ແນະນໍາສະຖານທີ່ທ່ອງທ່ຽວໃນຫຼວງພະບາງນີ້ເປັນລະບົບ full-stack
           ທີ່ໃຊ້ React JS ສໍາລັບ front-end, Node.js ແລະ Express ສໍາລັບ back-end,
@@ -77,18 +80,37 @@ export default function Review_Websit_LPB() {
     <div className="video  w-full  justify-center mt-4">
  <h1 className="pt-10 text-Secondary font-NotosansLao font-bold text-3xl">1. ຊົມວິດີໂອ </h1>
  
+
  <a
-  className="text-Secondary font-NotosansLao font-bold text-xl flex gap-6 "
-  href="https://github.com/MK-LLX001/Portfolio.git"
-  target="_blank"
-  rel="noopener noreferrer"
->
-   <p> Link Github:</p> <span className="underline">https://github.com/MK-LLX001/Portfolio.git</span>
-</a>
+          className="text-Secondary font-NotosansLao  font-bold items-center text-xl flex gap-6 "
+          href="https://github.com/MK-LLX001/Website-laungphabang.git"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <p>
+            {" "}
+            <FaGithub  className="text-3xl"/>
+          </p>{" "}
+          <span className="underline">ເບີງ coding</span>
+        </a>
+
+        <a
+          className="text-Secondary font-NotosansLao pt-3  font-bold items-center text-xl flex gap-6 "
+          href="https://youtu.be/HS14Jv7B-H0?si=ERpNSfKSA7WE_1jK"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <p>
+            {" "}
+            <AiOutlineYoutube  className="text-3xl"/>{" "}
+          </p>{" "}
+          <span className="underline">ເບີງລີວິວເພີມເຕີມ</span>
+        </a>
         <div className="box-vdio w-full flex justify-center pt-3">
         <iframe
+        className="w-fit md:w-full  "
         width="860"
-        height="415"
+        height="515"
         src="https://www.youtube.com/embed/HS14Jv7B-H0?si=cz0RqhgSHrqZZ8hQ"
         title="YouTube video player"
         frameborder="0"

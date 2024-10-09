@@ -10,6 +10,7 @@ import "./index.css";
 import Review_Websit_LPB from './components/Review_Websit_LPB.jsx';
 import Expenses from './components/Review_Expen_system.jsx';
 import Review_Brijark_system from './components/Review_Brijark_system.jsx';
+import Review_Image from './components/Review_Image.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "brijack", // เส้นทางหลัก (root path)
     element: <Review_Brijark_system />, // องค์ประกอบที่จะแสดง
+  },
+  {
+    path: "image", // เส้นทางหลัก (root path)
+    element: <Review_Image/>, // องค์ประกอบที่จะแสดง
   },
  
 ]);
