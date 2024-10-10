@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import img1 from "../assets/expenses-img/Screenshot 2024-10-05 000928.jpg";
 import img2 from "../assets/expenses-img/Screenshot 2024-10-05 001042.jpg";
 import img3 from "../assets/expenses-img/Screenshot 2024-10-05 001109.jpg";
@@ -26,6 +26,10 @@ export default function Review_Expen_system() {
   const closeImage = () => {
     setSelectedImage(null);
   };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <div className=" containers h-[100%] text-white ">

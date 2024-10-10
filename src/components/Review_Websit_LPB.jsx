@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 // Import images manually
 import img1 from "../image/1.jpg";
@@ -52,7 +52,9 @@ export default function Review_Websit_LPB() {
   const closeImage = () => {
     setSelectedImage(null);
   };
-
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <div className="containers   text-white bg-dark h-[100%]  ">

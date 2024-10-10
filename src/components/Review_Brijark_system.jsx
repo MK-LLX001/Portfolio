@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import img1 from "../assets/brijack-img/Screenshot 2024-10-05 104642.jpg"
 
@@ -26,6 +26,9 @@ export default function Review_Brijark_system() {
     setSelectedImage(null);
   };
 
+useEffect(() => {
+  window.scroll(0, 0);
+}, []);
   return (
     <div className="containers h-[100%] bg-dark text-white">
       <article class="prose lg:prose-xl font-NotosansLao">
