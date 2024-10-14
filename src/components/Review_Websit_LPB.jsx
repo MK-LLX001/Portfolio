@@ -59,8 +59,8 @@ export default function Review_Websit_LPB() {
   return (
     <div className="containers   text-white bg-dark h-[100%]  ">
       <article class="prose lg:prose-xl font-NotosansLao">
-        <h1 className="font-semibold text-xl md:text-3xl">- ເວັບໄຊທ໌ແນະນໍາສະຖານທີ່ທ່ອງທ່ຽວໃນຫຼວງພະບາງ</h1>
-        <p>
+        <h1 className="font-semibold text-xl md:text-3xl p-7">- ເວັບໄຊທ໌ແນະນໍາສະຖານທີ່ທ່ອງທ່ຽວໃນຫຼວງພະບາງ</h1>
+        <p className="md:text-xl">
           ເວັບໄຊທ໌ແນະນໍາສະຖານທີ່ທ່ອງທ່ຽວໃນຫຼວງພະບາງນີ້ເປັນລະບົບ full-stack
           ທີ່ໃຊ້ React JS ສໍາລັບ front-end, Node.js ແລະ Express ສໍາລັບ back-end,
           ແລະ PostgreSQL ເປັນຖານຂໍ້ມູນ. ເວັບໄຊທ໌ອະນຸຍາດໃຫ້ຜູ້ໃຊ້ສົ່ງ ແລະ
@@ -129,7 +129,7 @@ export default function Review_Websit_LPB() {
 
     <div className="photos bg-dark mt-10 font-NotosansLao">
 
-    <h1 className="text-2xl p-3 pt-5 text-Secondary font-bold">ຮຼບພາບປະກອບ</h1>
+    <h1 className="text-2xl py-7 pt-5 text-Secondary font-bold ">ຮຼບພາບປະກອບ</h1>
     
     <div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

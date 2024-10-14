@@ -38,7 +38,7 @@ export default function Review_Expen_system() {
           - ໂປຣແກຣມ ລະບົບຈັດການການລາຍຮັບ-ລາຍຈ່າຍ (ເງີນ)
         </h1>
 
-        <p className="p-10">
+        <p className="p-10 md:text-xl">
           ໂປຣແກຣມນີ້ແມ່ນລະບົບຈັດການການເງິນສໍາລັບວັດໂພທິ໌ນອນ, ພັດທະນາດ້ວຍ Windows
           Forms ແລະ .NET Framework ໂດຍໃຊ້ພາສາ C#. ມັນມີຄຸນສົມບັດຫຼາຍຢ່າງລວມມີ:{" "}
           <br />
@@ -55,11 +55,12 @@ export default function Review_Expen_system() {
         </p>
       </article>
 
+       
       <div className="video items-center justify-center flex flex-col">
 
 
         <a
-          className="text-Secondary font-NotosansLao  font-bold items-center text-xl flex gap-6 "
+          className="text-Secondary font-NotosansLao w-full font-bold items-center text-xl flex gap-6 "
           href="https://github.com/MK-LLX001/Expenses-temple_system.git"
           target="_blank"
           rel="noopener noreferrer"
@@ -72,7 +73,7 @@ export default function Review_Expen_system() {
         </a>
 
         <a
-          className="text-Secondary font-NotosansLao pt-3  font-bold items-center text-xl flex gap-6 "
+          className="text-Secondary font-NotosansLao w-full pt-3  font-bold items-center text-xl flex gap-6 "
           href="https://youtu.be/TYLMhcs4T5M"
           target="_blank"
           rel="noopener noreferrer"
@@ -85,7 +86,7 @@ export default function Review_Expen_system() {
         </a>
 
 
-        <h3 className="text-Secondary font-bold md:text-2xl">
+        <h3 className="text-Secondary font-bold md:text-2xl py-7">
           Video Review 
         </h3>
 
@@ -142,9 +143,14 @@ export default function Review_Expen_system() {
                   alt="Expanded"
                 />
               </div>
+              
             </div>
           )}
         </div>
+        
+         
+          <button className="bg-Secondary text-white px-4 py-2 rounded-md hover:bg-opacity-80 transition-colors duration-300">Submit</button>
+          
       </div>
     </div>
   );

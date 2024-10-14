@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useRef, useEffect } from "react";
 import logo from "../public/img/logo.png";
 import img from "../public/img/long.png";
 import ayaka from "../public/img/longlai01.jpg";
@@ -19,91 +19,220 @@ import { FiFacebook } from "react-icons/fi";
 import { FaTiktok } from "react-icons/fa6";
 import { CiYoutube } from "react-icons/ci";
 import { CgWebsite } from "react-icons/cg";
+// logo
+import logoreact from "../public/reactjs.png";
+import logoPhotoshop from "../public/adobe-photoshop.png";
+import logoCSharp from "../public/c-sharp.png";
+import logoFigma from "../public/figma.png";
+import logoIllustrator from "../public/illustrator.png";
+import logoNodeJS from "../public/nodejs.png";
+import logoPostgreSQL from "../public/postgre.png";
+import logoReact from "../public/reactjs.png";
+import logoSQLServer from "../public/sql-server.png";
+import logoTailwindCSS from "../public/tailwind-css.png";
+
+import { motion, useScroll } from "framer-motion"
+
+import Typewriter from 'typewriter-effect';
+
+const container_lelt = (delay) => ({
+  hidden: { x: -100, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 0.5, delay: delay } },
+});
+const container_rigt = (delay) => ({
+  hidden: { x: 100, opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 1, delay: delay } },
+});
+const iconVariants = (duration) => ({
+  intitial: { y: -10 },
+  animate: {
+    y: [10, -10],
+    transition: {
+      duration: duration,
+      ease: "linear",
+      repeat: Infinity,
+      repeatType: "reverse",
+    },
+  },
+});
+const container_top = (delay) => ({
+  hidden: { y: -50, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 1, delay: delay } },
+});
+
 function App() {
   const Menu = [
-    {
-      title: "Home",
-      path: "/",
-    },
-    {
-      title: "About",
-      path: "/about",
-    },
-    {
-      title: "Services",
-      path: "/services",
-    },
-    {
-      title: "Contact",
-      path: "/contact",
-    },
+    { title: "Home", path: "/" },
+    { title: "About", path: "/about" },
+    { title: "Services", path: "/services" },
+    { title: "Contact", path: "/contact" },
   ];
+
+
+
+useEffect(() => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}, []);
 
   const [selected, setSelected] = useState("skill");
 
-  console.log(selected);
+  // Create a reference for the "about" section
+  const aboutMeRef = useRef(null);
+  const serviviceMeRef = useRef(null);
+  const contactMeRef = useRef(null);
+  
+  // Function to handle scrolling to sections
+  const scrollToSection = (section) => {
+    if (section === "about") {
+      aboutMeRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if (section === "services") {
+      serviviceMeRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if (section === "contact") {
+      contactMeRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if (section === "/") {
+      // Scroll to the top of the page smoothly when "Home" is clicked
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+  
 
   return (
-    <div className=" font-sans   ">
-      <nav className="bg-dark w-full flex h-[90px]  md:px-[3vw] md:py-5 top-0 md:text-2xl text-sm font-semibold border-dark-grey  border-b-2 shadow items-center z-10 sticky">
+    <div 
+    
+    className=" font-sans  ">
+        {/* Navbar */}
+      <nav className="bg-dark w-full flex h-[90px] md:px-[3vw] md:py-5 top-0 md:text-2xl text-sm font-semibold border-dark-grey border-b-2 shadow items-center z-10 sticky">
         <div className="mainNavbar flex items-center justify-between w-full">
-          <div className="logo flex  gap-3 md:gap-8 items-center ">
+          <div className="logo flex gap-3 md:gap-8 items-center">
             <img
               src={logo}
-              className=" aspect-auto w-10 md:w-20 -ml-3 md:ml-0  "
+              className="aspect-auto w-10 md:w-20 -ml-3 md:ml-0"
+              alt="logo"
             />
-
-            <span className="text-Secondary md:font-bold pr-4 md:text-3xl text-xl font-semibold   ">
-              i'm Long{" "}
+            <span className="text-Secondary md:font-bold pr-4 md:text-3xl text-xl font-semibold">
+              I'm Long
             </span>
           </div>
 
           <div className="flex">
-            {Menu.map((menuItem, index) => {
-              return (
-                <div className="menuitem   ">
-                  <a
-                    href={menuItem.path}
-                    className={`block px-1 md:px-3 py-2 text-white hover:text-gray-500 items-center justify-center  ${
-                      index === Menu.length - 1 ? "border-r-0" : ""
-                    }`}
-                  >
-                    {menuItem.title}
-                  </a>
-                </div>
-              );
-            })}
+            {Menu.map((menuItem, index) => (
+              <div className="menuitem" key={index}>
+                <a
+                  href={menuItem.path}
+                  className={`block px-1 md:px-3 py-2 text-white hover:text-gray-500`}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default anchor behavior
+                    scrollToSection(menuItem.title.toLowerCase());
+                  }}
+                >
+                  {menuItem.title}
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </nav>
 
-      <div className="containers bg-dark">
-        <div className="introduction text-white  flex w-full justify-between border-dark-grey border-4   rounded-xl shadow">
+      <motion.div
+      
+      className="containers bg-dark w-full">
+
+        <div className="introduction text-white  flex w-full justify-between border-dark-grey border-2 border-opacity-30   rounded-xl shadow">
           <div className="info  w-full text-center   md:font-bold    text-xl md:text-4xl font-semibold">
             <div className=" flex flex-col justify-center items-center w-full h-full">
-              <span>UI/UX DESIGNS</span>
-              <h2>
-                HI, I am <span className="text-Secondary font-bold">CCX4</span>
-              </h2>
-              <p>Web App, Sofeware Developer</p>
-              <p>UI/UX</p>
+              <motion.span
+                variants={container_lelt(0.5)}
+                initial="hidden"
+                animate="visible"
+              >
+                {" "}
+                Web Applications & Software Development
+              </motion.span>
+
+
+
+              <motion.h2
+                variants={container_lelt(1)}
+                initial="hidden"
+                animate="visible"
+              >
+              
+<h3 className="text-white font-bold flex">
+HI,
+  <Typewriter
+    options={{
+      strings: ['I am <span style="color: red;">CCX-4</span>'],
+      autoStart: true,
+      loop: true,
+      // Enable HTML parsing to style the text
+      html: true,
+    }}
+  />
+</h3>
+
+               
+
+
+              </motion.h2>
+
+            
+
+
+              <motion.p
+                variants={container_lelt(1.5)}
+                initial="hidden"
+                animate="visible"
+              >
+                {" "}
+                UI/UX DESIGNS
+              </motion.p>
+              <motion.p
+                variants={container_lelt(2)}
+                initial="hidden"
+                animate="visible"
+              >
+                IT-SUPPORT
+              </motion.p>
             </div>
           </div>
 
           <div className="img h-auto items-center">
-            <img src={img} className="aspect-auto w-full h-auto items-center" />
+            <motion.img
+              variants={container_rigt(1.3)}
+              initial="hidden"
+              animate="visible"
+              src={img}
+              className="aspect-auto w-full h-auto items-center"
+            />
           </div>
         </div>
 
-        <div className="about text-white flex pt-10 w-full flex-col md:flex-row ">
-          <div className="img  bg-grey items-center justify-center flex rounded-xl w-full">
+        <div
+         ref={aboutMeRef}
+        className="aboutme w-full text-Secondary text-2xl md:text-3xl font-bold items-center py-7 flex justify-center">
+          <h1>About Me</h1>
+        </div>
+        <div 
+     
+        className="about text-white flex  w-full flex-col md:flex-row ">
+          <motion.div
+            className="img  bg-grey items-center justify-center flex rounded-xl w-full"
+            whileInView={{ x: 0, opacity: 1 }}
+            initial={{ x: -100, opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <img
               src={ayaka}
               className="w-full aspect-auto items-center justify-center flex rounded-xl"
             />
-          </div>
+          </motion.div>
 
-          <div className="info font-semibold mt-2 md:pt-10 md:pl-8">
+          <motion.div
+            className="info font-semibold mt-2 md:pt-4 md:pl-8"
+            whileInView={{ x: 0, opacity: 1 }}
+            initial={{ x: 100, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <p className="md:pl-8">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Recusandae dicta vel ipsum ex, sint tenetur, at nihil excepturi
@@ -204,8 +333,8 @@ function App() {
                       <p className="md:text-xl font-NotosansLao">
                         - ເປັນແອັບພລິເຄຊັນທີ່ພັດທະນາ ຂຽນດ້ວຍ: C# ແລະ .NET
                         Framework Databases SQL SERVER <br />
-                        - ບັນທຶກລາຍຮັບ ແລະລາຍຈ່າຍ, ຮອງຮັບຫຼາຍສະກຸນເງິນ <br />
-                        - ການ​ສໍາ​ຮອງ​ຂໍ້​ມູນ​:
+                        - ບັນທຶກລາຍຮັບ ແລະລາຍຈ່າຍ, ຮອງຮັບຫຼາຍສະກຸນເງິນ <br />-
+                        ການ​ສໍາ​ຮອງ​ຂໍ້​ມູນ​:
                         ມີ​ຫນ້າ​ທີ່​ສໍາ​ຮອງ​ຂໍ້​ມູນ​ສໍາ​ລັບ​ຈຸດ​ປະ​ສົງ​ຄວາມ​ປອດ​ໄພ​.{" "}
                         <br />
                         - ບົດລາຍງານຂໍ້ມູນ,
@@ -272,35 +401,67 @@ function App() {
                 ) : null}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* my Service  */}
 
-        <div className="service mt-7 text-white  ">
-          <h3 className="uppercase text-2xl font-bold pl-3">MY SWERVICE</h3>
+        <div 
+         ref={serviviceMeRef}
+        className="service mt-7 text-white  ">
+          <h3 
+          
+          className="uppercase text-2xl font-bold pl-3">MY SERVICE</h3>
 
-          <div className="mainbox grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4 ">
-            <div className="boxservice  text-white rounded-xl p-4 bg-Secondary ">
-              <LuSeparatorVertical className="text-2xl font-bold" />
-              <h2 className="uppercase font-bold">Web/App developer</h2>
+          <div className="mainbox grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4 p-7 ">
+            <motion.div
+              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ x: -50, opacity: 0 }}
+              transition={{
+                duration: 0.8, // Increased duration for smoother effect
+                delay: 0.5,
+                ease: "easeInOut", // Smoother easing function
+              }}
+              className="boxservice transition ease-in-out delay-150 hover:-translate-y-4 hover:scale-105 duration-300 text-white rounded-xl p-4 bg-Secondary "
+            >
+              <LuSeparatorVertical className="text-3xl font-bold" />
+              <h2 className="uppercase font-bold">Web/App Developer</h2>
               <p className="font-NotosansLao md:text-xl">
-                {" "}
                 ໃຫ້ບໍລິການພັດທະນາເວັບໄຊທ໌ ແລະ Application ທັນສະໄຫມ
                 ຕອບສະຫນອງຄວາມຕ້ອງການຂອງຜູ້ໃຊ້ ທັງດ້ານຄວາມງາມ ແລະ ປະສິດທິພາບ
                 ດ້ວຍການອອກແບບທີ່ເນັ້ນໃສ່ຄວາມປອດໄພ ແລະ ການນຳໃຊ້ທີ່ລຽບງ່າຍ.
               </p>
-            </div>
-            <div className="boxservice  text-white rounded-xl p-4 bg-Secondary">
-              <LuSeparatorVertical />
+            </motion.div>
+
+            <motion.div
+              whileInView={{ y: 0, opacity: 1 }}
+              initial={{ y: -50, opacity: 0 }}
+              transition={{
+                duration: 0.8, // Increased duration for smoother effect
+                delay: 0.5,
+                ease: "easeInOut", // Smoother easing function
+              }}
+              className="boxservice transition ease-in-out delay-150 hover:-translate-y-4 hover:scale-105 duration-300  text-white rounded-xl p-4 bg-Secondary"
+            >
+              <LuSeparatorVertical className="text-3xl font-bold" />
               <h2 className="uppercase font-bold">software developer</h2>
               <p className="font-NotosansLao md:text-xl">
                 ພັດທະນາຊອບແວທີ່ສາມາດຕອບສະຫນອງຄວາມຕ້ອງການຂອງທຸລະກິດແລະອົງການຈັດຕັ້ງ.
                 ເຊັ່ນດຽວກັນກັບການສະຫນອງການແກ້ໄຂສະເພາະທີ່ຊ່ວຍໃຫ້ການດໍາເນີນງານມີປະສິດທິພາບຫຼາຍຂຶ້ນ.
               </p>
-            </div>
-            <div className="boxservice  text-white rounded-xl p-4 bg-Secondary">
-              <LuSeparatorVertical />
+            </motion.div>
+
+            <motion.div
+              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ x: 50, opacity: 0 }}
+              transition={{
+                duration: 0.8, // Increased duration for smoother effect
+                delay: 0.5,
+                ease: "easeInOut", // Smoother easing function
+              }}
+              className="boxservice transition ease-in-out delay-150 hover:-translate-y-4 hover:scale-105 duration-300 text-white rounded-xl p-4 bg-Secondary"
+            >
+              <LuSeparatorVertical className="text-3xl font-bold" />
               <h2 className="uppercase font-bold">UI/UX DESIGNS</h2>
               <p className="font-NotosansLao md:text-xl">
                 ອອກແບບປະສົບການຂອງຜູ້ໃຊ້ (UI/UX) ທີ່ເນັ້ນຄວາມເຂົ້າໃຈ
@@ -308,7 +469,7 @@ function App() {
                 ເພື່ອເຮັດໃຫ້ການສື່ສານລະຫວ່າງຜູ້ໃຊ້ແລະລະບົບມີປະສິດທິພາບ.
                 ແລະໃຫ້ຄວາມສໍາຄັນກັບການອອກແບບທີ່ສວຍງາມ
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -317,11 +478,18 @@ function App() {
         <div className="service mt-7 text-white ">
           <h3 className="uppercase text-2xl font-bold pl-3">MY Work</h3>
 
-          <div className="mainbox grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-4">
+          <motion.div
+            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            transition={{ duration: 1.5 }}
+            className="mainbox grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-4"
+          >
             {/* Box 01 */}
-          
-         
-            <Link to="reviewLPB" className="boxservice text-white rounded-xl  relative group overflow-hidden">
+
+            <Link
+              to="reviewLPB"
+              className="boxservice text-white rounded-xl  relative group overflow-hidden"
+            >
               <img
                 src={imgwork01}
                 className="rounded-xl hover:opacity-50 w-full h-full"
@@ -343,7 +511,10 @@ function App() {
               </div>
             </Link>
             {/* Box 02 */}
-            <Link to="expenses" className="boxservice text-white rounded-xl  relative group overflow-hidden">
+            <Link
+              to="expenses"
+              className="boxservice text-white rounded-xl  relative group overflow-hidden"
+            >
               <img
                 src={imgwork02}
                 className="rounded-xl hover:opacity-50 w-full h-full"
@@ -351,10 +522,14 @@ function App() {
               <div className="boxTitle bg-gradient-to-t from-Secondary  to-Primary  group-hover:opacity-90 translate-y-full group-hover:translate-y-0 transition-all duration-700 ease-in-out rounded-xl w-full h-full absolute bottom-0 left-0 p-4">
                 <div className="flex flex-col justify-center items-center w-full h-full">
                   <h1 className="font-bold font-NotosansLao md:text-2xl">
-                  ໂປຣແກຣມຈັດການດ້ານການເງິນຂອງວັດໂພນພະເນົາ
+                    ໂປຣແກຣມຈັດການດ້ານການເງິນຂອງວັດໂພນພະເນົາ
                   </h1>
                   <p className="p-2 font-NotosansLao line-clamp-3 md:line-clamp-5 lg:line-clamp-6">
-                  ເປັນໂປຣແກຣມທີ່ຄອບຄຸມການຈັດການລາຍຮັບ ແລະ ລາຍຈ່າຍ, ມີຟັງຊັນສໍາຮອງຂໍ້ມູນ ແລະ ການສ້າງລາຍງານ. ໂດຍໃຊ້ເທັກໂນໂລຢີ Windows Forms ແລະ .NET Framework ໂດຍພາສາ C#. ໂປຣແກຣມນີ້ອອກແບບມາເພື່ອຊ່ວຍໃຫ້ການຄໍານວນ ແລະ ການຕິດຕາມຂໍ້ມູນການເງິນໄດ້ຢ່າງມີປະສິດທິພາບ.
+                    ເປັນໂປຣແກຣມທີ່ຄອບຄຸມການຈັດການລາຍຮັບ ແລະ ລາຍຈ່າຍ,
+                    ມີຟັງຊັນສໍາຮອງຂໍ້ມູນ ແລະ ການສ້າງລາຍງານ. ໂດຍໃຊ້ເທັກໂນໂລຢີ
+                    Windows Forms ແລະ .NET Framework ໂດຍພາສາ C#.
+                    ໂປຣແກຣມນີ້ອອກແບບມາເພື່ອຊ່ວຍໃຫ້ການຄໍານວນ ແລະ
+                    ການຕິດຕາມຂໍ້ມູນການເງິນໄດ້ຢ່າງມີປະສິດທິພາບ.
                   </p>
                   <button className="bg-grey p-4 rounded-full">
                     <FaLink className="text-black" />
@@ -363,7 +538,10 @@ function App() {
               </div>
             </Link>
             {/* Box 03 */}
-            <Link to="brijack" className="boxservice text-white rounded-xl  relative group overflow-hidden">
+            <Link
+              to="brijack"
+              className="boxservice text-white rounded-xl  relative group overflow-hidden"
+            >
               <img
                 src={imgwork03}
                 className="rounded-xl hover:opacity-50 w-full h-full"
@@ -371,14 +549,14 @@ function App() {
               <div className="boxTitle bg-gradient-to-t from-Secondary  to-Primary  group-hover:opacity-90 translate-y-full group-hover:translate-y-0 transition-all duration-700 ease-in-out rounded-xl w-full h-full absolute bottom-0 left-0 p-4">
                 <div className="flex flex-col justify-center items-center w-full h-full">
                   <h1 className="font-bold font-NotosansLao md:text-2xl">
-                  ໂປຣແກຣມລະບົບຈັດການການເງິນສ້ອມແປງສາລາວັດໂພນພະເນົາ
+                    ໂປຣແກຣມລະບົບຈັດການການເງິນສ້ອມແປງສາລາວັດໂພນພະເນົາ
                   </h1>
                   <p className="p-2 font-NotosansLao line-clamp-3 md:line-clamp-5 lg:line-clamp-6">
-                  ພັດທະນາດ້ວຍ Windows Forms ແລະ .NET Framework ໂດຍໃຊ້ພາສາ C#. ມັນມີຄຸນສົມບັດຫຼາຍຢ່າງລວມມີ:
-                  ການບັນທຶກ ແລະ ຈັດການຂໍ້ມູນລາຍຮັບ-ລາຍຈ່າຍ
-                  ການຄິດໄລ່ຄ່າໃຊ້ຈ່າຍຕ່າງໆ
-                  ລະບົບສໍາຮອງຂໍ້ມູນ (Backup)
-                  ການສ້າງລາຍງານ (Report) ຂໍ້ມູນຕ່າງໆ
+                    ພັດທະນາດ້ວຍ Windows Forms ແລະ .NET Framework ໂດຍໃຊ້ພາສາ C#.
+                    ມັນມີຄຸນສົມບັດຫຼາຍຢ່າງລວມມີ: ການບັນທຶກ ແລະ
+                    ຈັດການຂໍ້ມູນລາຍຮັບ-ລາຍຈ່າຍ ການຄິດໄລ່ຄ່າໃຊ້ຈ່າຍຕ່າງໆ
+                    ລະບົບສໍາຮອງຂໍ້ມູນ (Backup) ການສ້າງລາຍງານ (Report)
+                    ຂໍ້ມູນຕ່າງໆ
                   </p>
                   <button className="bg-grey p-4 rounded-full">
                     <FaLink className="text-black" />
@@ -387,7 +565,10 @@ function App() {
               </div>
             </Link>
             {/* Box 04 */}
-            <Link to="image" className="boxservice text-white rounded-xl  relative group overflow-hidden">
+            <Link
+              to="image"
+              className="boxservice text-white rounded-xl  relative group overflow-hidden"
+            >
               <img
                 src={imgwork04}
                 className="rounded-xl hover:opacity-50 w-full h-full"
@@ -398,7 +579,12 @@ function App() {
                     ການອອກແບບ Gradphic ແລະ UI ທີ່ເຄີຍເຮັດຜ່ານມາ
                   </h1>
                   <p className="p-2 font-NotosansLao line-clamp-3 md:line-clamp-5 lg:line-clamp-6">
-                  ການອອກແບບກຣາຟິກ ແລະ UI ເປັນທັກສະທີ່ສຳຄັນໃນໂລກດິຈິຕອລປັດຈຸບັນ. Adobe Photoshop ແລະ Illustrator ເປັນເຄື່ອງມືທີ່ມີພະລັງສຳລັບການສ້າງ ແລະ ແກ້ໄຂຮູບພາບ, ໂລໂກ້, ແລະ ກຣາຟິກຕ່າງໆ. Photoshop ເໝາະສຳລັບການແກ້ໄຂຮູບຖ່າຍ ແລະ ການສ້າງອົງປະກອບ UI ທີ່ຊັບຊ້ອນ, ໃນຂະນະທີ່ Illustrator ແມ່ນດີເລີດສຳລັບກຣາຟິກແບບເວກເຕີ. Figma,
+                    ການອອກແບບກຣາຟິກ ແລະ UI
+                    ເປັນທັກສະທີ່ສຳຄັນໃນໂລກດິຈິຕອລປັດຈຸບັນ. Adobe Photoshop ແລະ
+                    Illustrator ເປັນເຄື່ອງມືທີ່ມີພະລັງສຳລັບການສ້າງ ແລະ
+                    ແກ້ໄຂຮູບພາບ, ໂລໂກ້, ແລະ ກຣາຟິກຕ່າງໆ. Photoshop
+                    ເໝາະສຳລັບການແກ້ໄຂຮູບຖ່າຍ ແລະ ການສ້າງອົງປະກອບ UI ທີ່ຊັບຊ້ອນ,
+                    ໃນຂະນະທີ່ Illustrator ແມ່ນດີເລີດສຳລັບກຣາຟິກແບບເວກເຕີ. Figma,
                   </p>
                   <button className="bg-grey p-4 rounded-full">
                     <FaLink className="text-black" />
@@ -406,36 +592,104 @@ function App() {
                 </div>
               </div>
             </Link>
+          </motion.div>
+        </div>
 
-          
-            
-           
+        <div className="sosia flex flex-col items-center justify-center gap-3 text-4xl text-Secondary my-7 w-full  ">
+          <motion.h1
+            variants={container_top(0.5)}
+            initial="hidden"
+            animate="visible"
+          >
+            Technologies
+          </motion.h1>
+          <div className="items flex flex-wrap gap-7 w-full justify-center items-center ">
+            <motion.div
+              className="img flex gap-4 md:gap-8 w-full justify-center pt-4 overflow-x-auto py-4"
+              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -100 }}
+              transition={{ duration: 2 }}
+            >
+              <motion.img
+                src={logoReact}
+                alt="Reactjs"
+                className="w-8 sm:w-16 md:w-20 lg:w-24 aspect-auto  rounded-xl p-2 border-2"
+                variants={iconVariants(2.5)}
+                initial="initial"
+                animate="animate"
+                // transition={{ duration: 0.5 }}
+              />
+              <motion.img
+                src={logoNodeJS}
+                alt="Node.js"
+                className="w-8 sm:w-16 md:w-20 lg:w-24 aspect-auto rounded-xl p-2 border-2"
+                variants={iconVariants(3)}
+                initial="initial"
+                animate="animate"
+              />
+              <motion.img
+                src={logoCSharp}
+                alt="CSharp"
+                className="w-8 sm:w-16 md:w-20 lg:w-24 aspect-auto rounded-xl p-2 border-2"
+                variants={iconVariants(5)}
+                initial="initial"
+                animate="animate"
+              />
+              <motion.img
+                src={logoPostgreSQL}
+                alt="PostgreSQL"
+                className="w-8 sm:w-16 md:w-20 lg:w-24 aspect-auto rounded-xl p-2 border-2"
+                variants={iconVariants(2)}
+                initial="initial"
+                animate="animate"
+              />
+              <motion.img
+                src={logoSQLServer}
+                alt="SQL Server"
+                className="w-8 sm:w-16 md:w-20 lg:w-24 aspect-auto rounded-xl p-2 border-2 "
+                variants={iconVariants(6)}
+                initial="initial"
+                animate="animate"
+              />
+              <motion.img
+                src={logoTailwindCSS}
+                alt="TailwindCSS"
+                className="w-8 sm:w-16 md:w-20 lg:w-24 aspect-auto rounded-xl p-2 border-2"
+                variants={iconVariants(4)}
+                initial="initial"
+                animate="animate"
+              />
+            </motion.div>
           </div>
         </div>
 
-        <div className="boxcontact h-full w-full  text-white mt-10 p-4">
-              <hr className="h-2  bg-gradient-to-r from-Secondary  to-Primary "/>
-                <div className="boxelements h-[20rem] w-full flex flex-col justify-center items-center gap-4">
-                      <h1 className="md:text-2xl font-bold">Contact</h1>
-                      <div className="email flex items-center gap-3 ">
-                      <MdOutlineEmail className="text-Secondary text-2xl md:text-4xl"/>
-                        <span className="md:text-2xl">info@yourwebsite.com</span>
-                      </div>
-                      <div className="tell flex items-center gap-3">
-                      <BsTelephone className="text-Secondary md:text-4xl" />
-                        <span className="md:text-2xl">info@yourwebsite.com</span>
-                      </div>
-                      <p>DOWLOAD CV</p>
-                      <div className="sosia flex items-center gap-3 text-4xl text-Secondary">
-                      <FiFacebook />
-                      <FaTiktok />
-                      <CiYoutube />
-                      <CgWebsite />
-                      </div>
-                  </div>
+        <div 
+        ref={contactMeRef}
+        className="boxcontact h-full w-full  text-white mt-10 ">
+          <hr className="h-[7px]  bg-gradient-to-r from-Secondary  to-Primary rounded-full" />
+          <div className="boxelements  w-full flex flex-col justify-center items-center gap-4 pt-7">
+            <h1 className="md:text-2xl font-bold">Contact</h1>
+            <div className="email flex items-center gap-3 ">
+              <MdOutlineEmail className="text-Secondary text-2xl md:text-4xl" />
+              <span className="md:text-2xl">info@yourwebsite.com</span>
+            </div>
+            <div className="tell flex items-center gap-3">
+              <BsTelephone className="text-Secondary md:text-4xl" />
+              <span className="md:text-2xl">info@yourwebsite.com</span>
+            </div>
+            <p>DOWLOAD CV</p>
+            <div className="sosia flex items-center gap-4 text-4xl text-Secondary">
+              <FiFacebook />
+              <FaTiktok />
+              <CiYoutube />
+              <CgWebsite />
+            </div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </div>
+
+
   );
 }
 

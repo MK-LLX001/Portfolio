@@ -19,6 +19,18 @@ import img17 from "../assets/photoshop/phadarn01.jpg";
 import img18 from "../assets/photoshop/post01 copy.jpg";
 import img19 from "../assets/photoshop/souksavanh-edit.jpg";
 import img20 from "../assets/photoshop/Untitled-2.jpg";
+import img21 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.50_aae5623b.jpg";
+import img22 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.52_55b90c2f.jpg";
+import img23 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.52_74cbf496.jpg";
+import img24 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.52_9e3ab7bf.jpg";
+import img25 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.53_76a461dc.jpg";
+import img26 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.55_02276734.jpg";
+import img27 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.55_886a06e7.jpg";
+import img28 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.55_ad670f93.jpg";
+import img29 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.56_599b7cee.jpg";
+import img30 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.56_9b3863da.jpg";
+import img31 from "../assets/photoshop/WhatsApp Image 2024-10-10 at 17.05.56_9c037f2a.jpg";
+
 
 export default function Review_Image() {
 
@@ -45,6 +57,17 @@ export default function Review_Image() {
     img18,
     img19,
     img20,
+    img21,
+    img22,
+    img23,
+    img24,
+    img25,
+    img26,
+    img27,
+    img28,
+    img29,
+    img30,
+    img31,
   ];
 
 // State to control which image is clicked and whether to show the full-screen mode
@@ -65,7 +88,7 @@ useEffect(() => {
 }, []);
 
   return (
-    <div className="containers bg-dark text-white">
+    <div className="containers bg-dark text-white h-full">
       <div className="photos bg-dark mt-10 font-NotosansLao ">
         <h1 className="text-2xl p-3 pt-5 text-Secondary font-bold">
           ຮູບພາບປະກອບ

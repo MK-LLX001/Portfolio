@@ -6,6 +6,8 @@ import img2 from "../assets/brijack-img/Screenshot 2024-10-05 104722.jpg"
 
 import img3 from "../assets/brijack-img/Screenshot 2024-10-05 104744.jpg"
 
+
+
 import { AiOutlineYoutube } from "react-icons/ai";
 
 import { FaGithub } from "react-icons/fa";
@@ -57,7 +59,7 @@ useEffect(() => {
 
 
       <a
-          className="text-Secondary font-NotosansLao  font-bold items-center text-xl flex gap-6 "
+          className="text-Secondary font-NotosansLao w-full font-bold items-center text-xl flex gap-6 "
           href="https://github.com/MK-LLX001/MAI_PHADARN.git"
           target="_blank"
           rel="noopener noreferrer"
@@ -70,7 +72,7 @@ useEffect(() => {
         </a>
 
         <a
-          className="text-Secondary font-NotosansLao pt-3  font-bold items-center text-xl flex gap-6 "
+          className="text-Secondary font-NotosansLao pt-3 w-full font-bold items-center text-xl flex gap-6 "
           href="https://youtu.be/msfuTjeq6ss"
           target="_blank"
           rel="noopener noreferrer"
@@ -84,7 +86,7 @@ useEffect(() => {
 
 
 
-        <h3 className="text-Secondary font-bold md:text-2xl">
+        <h3 className="text-Secondary font-bold md:text-2xl w-full py-7">
           Video Review 
         </h3>
 
