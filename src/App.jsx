@@ -1,7 +1,7 @@
 import { useState,useRef, useEffect } from "react";
 import logo from "../public/img/logo.png";
-import img from "../public/img/long.png";
-import ayaka from "../public/img/longlai01.jpg";
+import img from "../public/img/download (2) copy.jpg";
+import ayaka from "../public/img/grads.jpg";
 
 import Slider from "@mui/material/Slider";
 import { LuSeparatorVertical } from "react-icons/lu";
