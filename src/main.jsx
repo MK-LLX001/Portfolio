@@ -2,8 +2,9 @@ import App from './App.jsx';
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter,
+  Routes,
+  Route,
 } from "react-router-dom";
 import "./index.css";
 
@@ -12,32 +13,16 @@ import Expenses from './components/Review_Expen_system.jsx';
 import Review_Brijark_system from './components/Review_Brijark_system.jsx';
 import Review_Image from './components/Review_Image.jsx';
 
-const router = createBrowserRouter([
-  {
-    path: "/", // เส้นทางหลัก (root path)
-    element: <App />, // องค์ประกอบที่จะแสดง
-  },
-  {
-    path: "reviewLPB", // เส้นทางหลัก (root path)
-    element: <Review_Websit_LPB />, // องค์ประกอบที่จะแสดง
-  },
-  {
-    path: "expenses", // เส้นทางหลัก (root path)
-    element: <Expenses />, // องค์ประกอบที่จะแสดง
-  },
-  {
-    path: "brijack", // เส้นทางหลัก (root path)
-    element: <Review_Brijark_system />, // องค์ประกอบที่จะแสดง
-  },
-  {
-    path: "image", // เส้นทางหลัก (root path)
-    element: <Review_Image/>, // องค์ประกอบที่จะแสดง
-  },
- 
-]);
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter basename="/Portfolio"> {/* basename ต้องตรงกับชื่อโฟลเดอร์ของ GitHub Pages */}
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="reviewLPB" element={<Review_Websit_LPB />} />
+        <Route path="expenses" element={<Expenses />} />
+        <Route path="brijack" element={<Review_Brijark_system />} />
+        <Route path="image" element={<Review_Image />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
