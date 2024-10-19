@@ -1,4 +1,4 @@
-import { useState,useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import logo from "../public/img/logo.png";
 import img from "../public/img/download (2) copy.jpg";
 import ayaka from "../public/img/grads.jpg";
@@ -31,9 +31,9 @@ import logoReact from "../public/reactjs.png";
 import logoSQLServer from "../public/sql-server.png";
 import logoTailwindCSS from "../public/tailwind-css.png";
 
-import { motion, useScroll } from "framer-motion"
+import { motion, useScroll } from "framer-motion";
 
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
 
 const container_lelt = (delay) => ({
   hidden: { x: -100, opacity: 0 },
@@ -68,11 +68,9 @@ function App() {
     { title: "Contact", path: "/contact" },
   ];
 
-
-
-useEffect(() => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const [selected, setSelected] = useState("skill");
 
@@ -80,27 +78,33 @@ useEffect(() => {
   const aboutMeRef = useRef(null);
   const serviviceMeRef = useRef(null);
   const contactMeRef = useRef(null);
-  
+
   // Function to handle scrolling to sections
   const scrollToSection = (section) => {
     if (section === "about") {
-      aboutMeRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      aboutMeRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     } else if (section === "services") {
-      serviviceMeRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      serviviceMeRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     } else if (section === "contact") {
-      contactMeRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      contactMeRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     } else if (section === "/") {
       // Scroll to the top of the page smoothly when "Home" is clicked
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
-  
 
   return (
-    <div 
-    
-    className=" font-sans  ">
-        {/* Navbar */}
+    <div className=" font-sans  ">
+      {/* Navbar */}
       <nav className="bg-dark w-full flex h-[90px] md:px-[3vw] md:py-5 top-0 md:text-2xl text-sm font-semibold border-dark-grey border-b-2 shadow items-center z-10 sticky">
         <div className="mainNavbar flex items-center justify-between w-full">
           <div className="logo flex gap-3 md:gap-8 items-center">
@@ -133,10 +137,7 @@ useEffect(() => {
         </div>
       </nav>
 
-      <motion.div
-      
-      className="containers bg-dark w-full">
-
+      <motion.div className="containers bg-dark w-full">
         <div className="introduction text-white  flex w-full justify-between border-dark-grey border-2 border-opacity-30   rounded-xl shadow">
           <div className="info  w-full text-center   md:font-bold    text-xl md:text-4xl font-semibold">
             <div className=" flex flex-col justify-center items-center w-full h-full">
@@ -149,34 +150,26 @@ useEffect(() => {
                 Web Applications & Software Development
               </motion.span>
 
-
-
               <motion.h2
                 variants={container_lelt(1)}
                 initial="hidden"
                 animate="visible"
               >
-              
-<h3 className="text-white font-bold flex">
-HI,
-  <Typewriter
-    options={{
-      strings: ['I am <span style="color: red;">CCX-4</span>'],
-      autoStart: true,
-      loop: true,
-      // Enable HTML parsing to style the text
-      html: true,
-    }}
-  />
-</h3>
-
-               
-
-
+                <h3 className="text-white font-bold flex">
+                  HI,
+                  <Typewriter
+                    options={{
+                      strings: [
+                        'I am <span style="color: red;">LONG VILAI</span>',
+                      ],
+                      autoStart: true,
+                      loop: true,
+                      // Enable HTML parsing to style the text
+                      html: true,
+                    }}
+                  />
+                </h3>
               </motion.h2>
-
-            
-
 
               <motion.p
                 variants={container_lelt(1.5)}
@@ -208,13 +201,13 @@ HI,
         </div>
 
         <div
-         ref={aboutMeRef}
-        className="aboutme w-full text-Secondary text-2xl md:text-3xl font-bold items-center py-7 flex justify-center">
+          ref={aboutMeRef}
+          className="aboutme w-full text-Secondary text-2xl md:text-3xl font-bold items-center py-7 flex justify-center"
+        >
           <h1>About Me</h1>
         </div>
-        <div 
-     
-        className="about text-white flex  w-full flex-col md:flex-row ">
+
+        <div className="about text-white flex  w-full flex-col md:flex-row ">
           <motion.div
             className="img  bg-grey items-center justify-center flex rounded-xl w-full"
             whileInView={{ x: 0, opacity: 1 }}
@@ -228,18 +221,21 @@ HI,
           </motion.div>
 
           <motion.div
-            className="info font-semibold mt-2 md:pt-4 md:pl-8"
+            className="info font-semibold mt-2 md:pt-4 md:pl-8 w-full"
             whileInView={{ x: 0, opacity: 1 }}
             initial={{ x: 100, opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
             <p className="md:pl-8">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Recusandae dicta vel ipsum ex, sint tenetur, at nihil excepturi
-              voluptate eum, cupiditate odio laboriosam ullam rem. Expedita
-              officiis labore rem quasi, dolores, ipsam vel earum soluta sequi
-              placeat id{" "}
+              <h1> Hello, I'm Long Vilayphone </h1>I am a passionate web and
+              software developer with a Bachelor's degree in Computer
+              Programming from the Sutsaga Institute of Technology. I specialize
+              in building user-centric applications that solve real-world
+              problems. My focus is on both front-end and back-end development,
+              and I always aim to improve my skills and create meaningful
+              solutions.
             </p>
+
             <div className="skil  w-full mt-4 ">
               <div className="btnskill flex md:gap-4 gap-2 md:pl-3 justify-center md:text-xl text-sm">
                 <button
@@ -375,7 +371,7 @@ HI,
                       </p>
                       <Slider
                         size="large"
-                        defaultValue={80}
+                        value={80}
                         sx={{ width: 300, color: "#4B70F5" }}
                       />
 
@@ -384,7 +380,8 @@ HI,
                       </p>
                       <Slider
                         size="large"
-                        defaultValue={60}
+                        value={80}
+                        
                         sx={{ width: 300, color: "#4B70F5" }}
                       />
 
@@ -393,7 +390,7 @@ HI,
                       </p>
                       <Slider
                         size="large"
-                        defaultValue={50}
+                       value={50}
                         sx={{ width: 300, color: "#4B70F5" }}
                       />
                     </div>
@@ -406,12 +403,8 @@ HI,
 
         {/* my Service  */}
 
-        <div 
-         ref={serviviceMeRef}
-        className="service mt-7 text-white  ">
-          <h3 
-          
-          className="uppercase text-2xl font-bold pl-3">MY SERVICE</h3>
+        <div ref={serviviceMeRef} className="service mt-7 text-white  ">
+          <h3 className="uppercase text-2xl font-bold pl-3">MY SERVICE</h3>
 
           <div className="mainbox grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-4 p-7 ">
             <motion.div
@@ -663,33 +656,86 @@ HI,
           </div>
         </div>
 
-        <div 
-        ref={contactMeRef}
-        className="boxcontact h-full w-full  text-white mt-10 ">
+        <div
+          ref={contactMeRef}
+          className="boxcontact h-full w-full  text-white mt-10 "
+        >
           <hr className="h-[7px]  bg-gradient-to-r from-Secondary  to-Primary rounded-full" />
           <div className="boxelements  w-full flex flex-col justify-center items-center gap-4 pt-7">
-            <h1 className="md:text-2xl font-bold">Contact</h1>
+
+            <h1 className="md:text-2xl font-bold">
+              
+            <Typewriter
+                    options={{
+                      strings: [
+                        'Contact <span style="color: red;">  to me</span>',
+                      ],
+                      autoStart: true,
+                      loop: true,
+                      // Enable HTML parsing to style the text
+                      html: true,
+                    }}
+                  />
+              
+             </h1>
+            
+
             <div className="email flex items-center gap-3 ">
               <MdOutlineEmail className="text-Secondary text-2xl md:text-4xl" />
-              <span className="md:text-2xl">info@yourwebsite.com</span>
+              <span className="md:text-2xl"> Mrlongvilai@gmail.com </span>
             </div>
+
             <div className="tell flex items-center gap-3">
               <BsTelephone className="text-Secondary md:text-4xl" />
-              <span className="md:text-2xl">info@yourwebsite.com</span>
+              <span className="md:text-2xl">+856 20 7646 2546 </span>
             </div>
-            <p>DOWLOAD CV</p>
-            <div className="sosia flex items-center gap-4 text-4xl text-Secondary">
-              <FiFacebook />
-              <FaTiktok />
-              <CiYoutube />
-              <CgWebsite />
+           
+            <div className="sosia flex items-center gap-4 mb-20 text-4xl text-Secondary">
+
+              <Link
+                to="https://www.facebook.com/share/14C6FT7WFu/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FiFacebook  />
+              </Link>
+
+              <Link
+                to="https://www.tiktok.com/@long_laivay?_t=8qfAnW2PDwy&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTiktok />
+              </Link>
+
+              <Link
+                to="https://www.youtube.com/@CCX-4"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <CiYoutube />
+              </Link>
+
+              <Link
+                to="https://mk-llx001.github.io/Portfolio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <CgWebsite />
+              </Link>
+
+              
+             
+             
             </div>
+
+
+
+
           </div>
         </div>
       </motion.div>
     </div>
-
-
   );
 }
 
