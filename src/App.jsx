@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import logo from "../public/img/logo.png";
-import img from "../public/img/long-obj.png";
+import img_long from "../public/img/long-obj.png";
 import ayaka from "../public/img/IMG_7079.jpg";
 
 import Slider from "@mui/material/Slider";
@@ -190,7 +190,7 @@ function App() {
               variants={container_rigt(1.3)}
               initial="hidden"
               animate="visible"
-              src={img}
+              src={img_long}
               className="aspect-auto w-full h-auto items-center"
             />
           </div>
