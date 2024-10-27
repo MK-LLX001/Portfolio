@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import logo from "../public/img/logo.png";
-import img from "../public/img/download (2) copy.jpg";
-import ayaka from "../public/img/grads.jpg";
+import img from "../public/img/long-obj.png";
+import ayaka from "../public/img/IMG_7079.jpg";
 
 import Slider from "@mui/material/Slider";
 import { LuSeparatorVertical } from "react-icons/lu";
@@ -20,18 +20,14 @@ import { FaTiktok } from "react-icons/fa6";
 import { CiYoutube } from "react-icons/ci";
 import { CgWebsite } from "react-icons/cg";
 // logo
-import logoreact from "../public/reactjs.png";
-import logoPhotoshop from "../public/adobe-photoshop.png";
 import logoCSharp from "../public/c-sharp.png";
-import logoFigma from "../public/figma.png";
-import logoIllustrator from "../public/illustrator.png";
 import logoNodeJS from "../public/nodejs.png";
 import logoPostgreSQL from "../public/postgre.png";
 import logoReact from "../public/reactjs.png";
 import logoSQLServer from "../public/sql-server.png";
 import logoTailwindCSS from "../public/tailwind-css.png";
 
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 
 import Typewriter from "typewriter-effect";
 
